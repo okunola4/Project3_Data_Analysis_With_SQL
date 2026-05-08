@@ -54,58 +54,93 @@ Q10. Show the total revenue by month. Hint: Research “EXTRACT”.
 ### Data Analysis
 
 Q1:	SELECT last_name, count(last_name) AS number_of_actors
+
 FROM actor
+
 GROUP BY last_name
+
 BY last_name ASC;
 
 Q2:	SELECT last_name, COUNT(last_name) AS number_of_actors
+
 FROM actor
+
 GROUP BY last_name
+
 HAVING COUNT(last_name) >= 3
+
 ORDER BY number_of_actors DESC;
 
 Q3:	SELECT title, film_year
+
 FROM movies
+
 WHERE genre = 'Comedy'
+
 ORDER BY revenue_mils DESC;
 
 Q4:	SELECT film_year, count(film_year) AS count_of_films
+
 FROM movies
+
 GROUP film_year
+
 ORDER BY film_year ASC;
 
 Q5:	SELECT director, COUNT(director) AS count_of_films
+
 FROM movies
+
 GROUP BY director
+
 HAVING COUNT(director) >4
+
 ORDER BY COUNT(director) DESC, director ASC;
 
 Q6:	SELECT film_year, MAX(revenue_mils)
+
 FROM movies
+
 GROUP BY film_year
+
 ORDER BY film_year ASC;
 
 Q7:	SELECT district, MAX(postal_code) 
+
 FROM address
+
 WHERE district LIKE 'A%' or district LIKE 'B%' or district LIKE 'C%' or district LIKE 'D%'
+
 GROUP BY district
+
 ORDER BY district ASC;
 
 Q8:	SELECT customer_id, ROUND(AVG(amount),3) AS average_money_spent
+
 FROM payment
+
 GROUP BY customer_id
+
 HAVING AVG(amount) < 4.5
+
 ORDER BY AVG(amount)  DESC
+
 LIMIT 15;
 
 Q9:	SELECT last_name, COUNT(last_name)
+
 FROM actor
+
 GROUP BY last_name 
+
 HAVING COUNT(last_name) >= 4;
 
 Q10:	SELECT SUM(amount) AS total_revenue, EXTRACT(MONTH FROM payment_date) AS pay_month 
+
 FROM payment
+
 GROUP BY EXTRACT(MONTH FROM payment_date)
+
 ORDER BY EXTRACT(MONTH FROM payment_date);
 
 ### Result/Findings
